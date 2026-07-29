@@ -360,19 +360,50 @@ button:focus-visible {
 
 .home-hero {
   padding: 1rem 0 2.5rem;
+}
 
-  h1 {
-    background: linear-gradient(135deg, var(--violet), var(--pink));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-  }
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+}
 
+.hero-copy {
   .lead {
     font-size: 1.2rem;
     color: var(--ink-soft);
     max-width: 52ch;
     margin-bottom: 0;
+  }
+}
+
+.hero-badge {
+  justify-self: center;
+}
+
+.hero-badge-img {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-md);
+}
+
+@media (max-width: 860px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .hero-badge {
+    order: -1;
+  }
+
+  .hero-badge-img {
+    width: 160px;
+    height: 160px;
   }
 }
 

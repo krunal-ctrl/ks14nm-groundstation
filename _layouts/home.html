@@ -3,7 +3,14 @@ layout: default
 ---
 <div class="home">
   <section class="home-hero">
-    {{ content }}
+    <div class="hero-grid">
+      <div class="hero-copy">
+        {{ content }}
+      </div>
+      <div class="hero-badge">
+        <img class="hero-badge-img" src="{{ '/assets/img/logo/ks14nm-badge.png' | relative_url }}" alt="KS14NM badge — a home-built TinyGS ground station emblem">
+      </div>
+    </div>
   </section>
 
   <section class="home-section">
