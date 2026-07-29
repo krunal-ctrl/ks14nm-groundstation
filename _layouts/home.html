@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<div class="home">
+  {{ content }}
+
+  <div class="post-grid">
+    {% for post in site.posts %}
+      <a class="post-card" href="{{ post.url | relative_url }}">
+        {% if post.cover_image %}<img src="{{ post.cover_image | relative_url }}" alt="{{ post.title }}">{% endif %}
+        <div class="post-card-body">
+          <span class="category-tag">{{ post.category }}</span>
+          <h3>{{ post.title }}</h3>
+          <p>{{ post.excerpt | strip_html | truncatewords: 20 }}</p>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+
+  <!-- future: live stats -->
+  <div id="telemetry">
+    Live telemetry — coming soon.
+  </div>
+</div>

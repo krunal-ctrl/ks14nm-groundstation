@@ -1,0 +1,7 @@
+<div class="metadata-card">
+  <span><strong>Date</strong> {{ page.date | date: "%Y-%m-%d" }}</span>
+  {% if page.satellite %}<span><strong>Sat</strong> {{ page.satellite }}</span>{% endif %}
+  {% if page.norad_id %}<span><strong>NORAD</strong> {{ page.norad_id }}</span>{% endif %}
+  {% if page.frequency %}<span class="freq"><strong>Freq</strong> {{ page.frequency }}</span>{% endif %}
+  {% if page.experiment_id %}<span><strong>Exp ID</strong> {{ page.experiment_id }}</span>{% endif %}
+</div>

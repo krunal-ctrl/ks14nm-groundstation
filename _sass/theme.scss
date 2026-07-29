@@ -1,0 +1,197 @@
+// ---------------------------------------------------------------------------
+// KS14NM Ground Station — theme tokens
+// Single source of truth for color/type. No inline hex codes in templates.
+// ---------------------------------------------------------------------------
+
+:root {
+  --color-bg: #1c1f22;
+  --color-paper: #f4efe6;
+  --color-highlight: #4fb3ac;
+  --color-accent: #e0952b;
+  --color-text-secondary: #9aa0a6;
+  --color-text-primary: var(--color-paper);
+  --color-border: rgba(244, 239, 230, 0.12);
+
+  --font-heading: "Space Grotesk", "IBM Plex Sans", sans-serif;
+  --font-mono: "JetBrains Mono", "IBM Plex Mono", monospace;
+  --font-hand: "Caveat", "Architects Daughter", cursive;
+
+  --grid-margin: 2rem;
+  --grid-max-width: 960px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-heading);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  line-height: 1.25;
+}
+
+code, pre, .telemetry, .metadata-card, .freq {
+  font-family: var(--font-mono);
+}
+
+.annotation {
+  font-family: var(--font-hand);
+  color: var(--color-accent);
+}
+
+a {
+  color: var(--color-highlight);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.wrapper {
+  max-width: var(--grid-max-width);
+  margin: 0 auto;
+  padding: 0 var(--grid-margin);
+}
+
+// -- header -------------------------------------------------------------
+
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  padding: 1.5rem 0;
+
+  .site-title {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 700;
+    font-size: 1.4rem;
+    letter-spacing: 0.02em;
+
+    .site-logo {
+      height: 2rem;
+      width: auto;
+    }
+  }
+}
+
+// -- metadata card --------------------------------------------------------
+
+.metadata-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  background: rgba(244, 239, 230, 0.05);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+
+  span strong {
+    color: var(--color-highlight);
+  }
+}
+
+// -- post card grid ---------------------------------------------------------
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.post-card {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(244, 239, 230, 0.03);
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: var(--color-highlight);
+  }
+
+  img {
+    width: 100%;
+    display: block;
+  }
+
+  .post-card-body {
+    padding: 1rem;
+  }
+
+  .category-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-bg);
+    background: var(--color-highlight);
+    padding: 0.15rem 0.5rem;
+    border-radius: 3px;
+    margin-bottom: 0.5rem;
+  }
+}
+
+// -- post body -------------------------------------------------------------
+
+.post-content {
+  img {
+    max-width: 100%;
+    border-radius: 4px;
+    background: repeating-linear-gradient(
+      0deg,
+      rgba(244, 239, 230, 0.03),
+      rgba(244, 239, 230, 0.03) 1px,
+      transparent 1px,
+      transparent 24px
+    );
+  }
+
+  figcaption {
+    font-family: var(--font-hand);
+    color: var(--color-accent);
+    font-size: 1.1rem;
+  }
+}
+
+// -- telemetry placeholder --------------------------------------------------
+
+#telemetry {
+  border: 1px dashed var(--color-border);
+  border-radius: 6px;
+  padding: 2rem;
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  margin: 3rem 0;
+}
+
+// -- footer ------------------------------------------------------------
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+
+  .footer-logo {
+    height: 1.2rem;
+    width: auto;
+    vertical-align: middle;
+  }
+}

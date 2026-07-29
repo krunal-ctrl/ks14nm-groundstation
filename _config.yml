@@ -1,0 +1,40 @@
+title: "KS14NM Ground Station"
+tagline: "Amateur ground station build log — RF, satellites, and telemetry"
+description: >-
+  Build logs, pass reports, and telemetry captures from the KS14NM amateur
+  ground station. DIY antenna experiments, TinyGS setup, and NOAA/weather
+  satellite reception, paired with @ks14nm.groundstation on Instagram.
+url: "https://krunal-ctrl.github.io"
+baseurl: "/ks14nm-groundstation"
+
+author: "KS14NM"
+instagram: "ks14nm.groundstation"
+callsign: "KS14NM"
+station_frequency: "433 MHz"
+
+markdown: kramdown
+permalink: /:categories/:year/:month/:day/:title/
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+collections_dir: .
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - CLAUDE.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
