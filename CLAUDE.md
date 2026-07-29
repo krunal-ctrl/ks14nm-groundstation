@@ -48,21 +48,29 @@ Live telemetry widget on homepage: planned, not now. Build content pipeline firs
 
 As of 2026-07-29, this site shares the layout/color system of the personal
 portfolio (`krunal-ctrl.github.io`) instead of a standalone dark/notebook
-look, so the two properties read as one brand — header/footer show both
-brand marks together (personal wordmark + KS14NM badge), rather than one
-replacing the other. Typography deliberately diverges from the portfolio
-(see below): a public, SEO-driven blog prioritizes open-licensed,
-accessibility-tested fonts over matching the portfolio's paid display font.
-Instagram carousels can still use the notebook/hand-drawn aesthetic for
-diagrams specifically — that's a content style, not the site chrome.
+look, so the two properties read as one brand. The personal wordmark lives
+in the **footer only**; the header shows just the KS14NM badge, so the
+header stays focused on this site's own identity. Typography deliberately
+diverges from the portfolio (see below): a public, SEO-driven blog
+prioritizes open-licensed, accessibility-tested fonts over matching the
+portfolio's paid display font. Instagram carousels can still use the
+notebook/hand-drawn aesthetic for diagrams specifically — that's a content
+style, not the site chrome.
 
-**Palette** (light theme, matches portfolio)
-- Background: `hsl(210deg 25% 98%)` (`--bg`), soft panels `hsl(220deg 35% 95%)` (`--bg-soft`)
+**Dark mode**
+- Supported via `prefers-color-scheme` by default, with a manual toggle button in the header (sun/moon icon) that overrides the OS preference and persists via `localStorage` (`ks14nm-theme`)
+- Dark tokens live in a `dark-tokens` Sass mixin in `theme.scss`, applied both under `@media (prefers-color-scheme: dark)` (unless overridden) and under `:root[data-theme="dark"]` (explicit override)
+- An inline anti-flash script in `_layouts/default.html` `<head>` applies any stored preference before first paint; `assets/js/theme-toggle.js` handles the click behavior
+- This brings back the original notebook/mission-control dark vibe as an equal, first-class mode — not just a light-only site
+
+**Palette** (light theme, matches portfolio; see Dark mode above for the dark variant)
+- Background: `hsl(210, 25%, 98%)` (`--bg`), soft panels `hsl(220, 35%, 95%)` (`--bg-soft`)
 - Surface (cards): `#ffffff` (`--surface`)
-- Ink (text): `hsl(222deg 22% 8%)` primary, `hsl(222deg 14% 38%)` soft, `hsl(222deg 12% 58%)` faint
-- Border: `hsl(220deg 26% 90%)`
-- Primary/brand accent: violet `hsl(245deg 100% 60–67%)` (`--violet` / `--primary`)
-- Secondary accents: pink `hsl(333deg 90% 48%)`, teal `hsl(170deg 80% 42%)` — teal is reserved for ground-station-specific details (frequency tags, TinyGS mentions)
+- Ink (text): `hsl(222, 22%, 8%)` primary, `hsl(222, 14%, 38%)` soft, `hsl(222, 12%, 58%)` faint
+- Border: `hsl(220, 26%, 90%)`
+- Primary/brand accent: violet `hsl(245, 100%, 60–67%)` (`--violet` / `--primary`)
+- Secondary accents: pink `hsl(333, 90%, 48%)`, teal `hsl(170, 80%, 42%)` — teal is reserved for ground-station-specific details (frequency tags, TinyGS mentions)
+- All color tokens use comma-separated `hsl()`/`hsla()` syntax, not the CSS Color 4 space-separated form — GitHub Pages' bundled libsass doesn't support the latter (see git history for the build break this caused)
 
 **Type**
 - Headings & body: **IBM Plex Sans** (Google Fonts, open-source/OFL) — chosen over the portfolio's Apercu deliberately: this is a public, SEO-driven blog, so open licensing and accessibility/legibility across a wide audience outweigh pixel-matching the portfolio's typeface
@@ -73,7 +81,7 @@ diagrams specifically — that's a content style, not the site chrome.
 - Rounded-card UI (`--radius` / `--radius-lg`), soft shadows (`--shadow-sm` / `--shadow-md`), pill buttons/tags — matches portfolio components (`.card`, `.btn`, `.tag`)
 - Fixed grid, consistent margins across all posts (`--maxw: 1080px`)
 - Every post: corner metadata block (date, satellite, experiment ID / build rev)
-- Header/footer use the shared brand mark (hand-drawn "K" wordmark) and link back to the portfolio; footer keeps a KS14NM / 433 MHz / TinyGS tag as the sub-brand identifier
+- Header shows the KS14NM badge + theme toggle only; footer carries the shared brand mark (hand-drawn "K" wordmark, linking back to the portfolio) plus a KS14NM / 433 MHz / TinyGS tag as the sub-brand identifier
 - Diagrams: hand-drawn look, faint grid/notebook background, not clip-art — this applies to diagram *images* specifically, not overall site chrome
 
 ## Post types (categories)

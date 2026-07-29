@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "KS14NM Ground Station — Build Log & Satellite Pass Reports"
+title: "KS14NM Ground Station - Build Log & Satellite Pass Reports"
 excerpt: "Amateur ground station build logs, TinyGS setup guides, and NOAA satellite pass reports from KS14NM."
 ---
 

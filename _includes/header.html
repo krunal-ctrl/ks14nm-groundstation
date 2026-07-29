@@ -1,18 +1,15 @@
 <header class="site-header">
   <nav class="nav wrapper" aria-label="Primary">
-    <div class="brand-lockup">
-      <a class="brand" href="https://krunal-ctrl.github.io/">
-        <span class="brand-first">Krunal</span>
-        <span class="brand-mono" aria-hidden="true">
-          <svg class="hand-k" width="22" height="26" viewBox="0 0 22 26" fill="none"><path d="M5 2.5C4.2 8 5.6 15 4.9 23.5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 13C9 10 12.5 6.5 17 2.8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 12.5C10 15 14 19 18 23.5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </span>
-        <span class="brand-last">Jethva</span>
-      </a>
-      <span class="brand-divider" aria-hidden="true">&times;</span>
-      <a class="badge-lockup" href="{{ '/' | relative_url }}">
-        <img class="badge-logo" src="{{ '/assets/img/logo/ks14nm-badge.png' | relative_url }}" alt="KS14NM badge">
+    <a class="badge-lockup" href="{{ '/' | relative_url }}">
+      <img class="badge-logo" src="{{ '/assets/img/logo/ks14nm-badge.png' | relative_url }}" alt="KS14NM badge">
+      <span class="badge-text">
+        <span class="badge-callsign">KS14NM</span>
         <span class="badge-label">Ground Station</span>
-      </a>
-    </div>
+      </span>
+    </a>
+    <button class="theme-toggle" type="button" aria-label="Toggle dark mode">
+      <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+    </button>
   </nav>
 </header>
