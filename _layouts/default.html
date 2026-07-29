@@ -12,13 +12,17 @@
     })();
   </script>
   {% seo %}
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/favicon.svg' | relative_url }}">
+  <link rel="alternate icon" href="{{ '/assets/img/logo/ks14nm-badge.png' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/img/logo/ks14nm-badge.png' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   {% include header.html %}
-  <main class="wrapper">
+  <main class="wrapper" id="main-content" tabindex="-1">
     {{ content }}
   </main>
   {% include footer.html %}

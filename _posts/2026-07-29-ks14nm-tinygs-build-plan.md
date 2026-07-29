@@ -8,6 +8,7 @@ norad_id: ""
 frequency: "433 MHz"
 experiment_id: "KS14NM-EXP-002"
 excerpt: "The build plan behind KS14NM: TinyGS architecture, hardware list, and the roadmap for a home-built satellite ground station in Junagadh."
+cover_image: "/assets/img/posts/ks14nm-build-plan-cover.png"
 keywords: "TinyGS build plan, DIY satellite ground station, ESP32 LoRa ground station"
 ---
 

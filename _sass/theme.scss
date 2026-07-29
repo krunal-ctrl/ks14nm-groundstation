@@ -154,6 +154,35 @@ a {
   padding: 0 24px;
 }
 
+// -- accessibility ---------------------------------------------------------
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 0.75rem 1.2rem;
+  border-radius: 0 0 8px 0;
+  box-shadow: var(--shadow-md);
+
+  &:focus {
+    left: 0;
+  }
+}
+
+main:focus-visible {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--violet);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
 // -- brand mark (shared with krunal-ctrl.github.io) ------------------------
 
 .brand {
@@ -316,6 +345,50 @@ a {
   }
 }
 
+// -- homepage hero + sections -----------------------------------------
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--accent-ink);
+  margin: 0 0 0.9em;
+}
+
+.home-hero {
+  padding: 1rem 0 2.5rem;
+
+  h1 {
+    background: linear-gradient(135deg, var(--violet), var(--pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    color: var(--ink-soft);
+    max-width: 52ch;
+    margin-bottom: 0;
+  }
+}
+
+.home-section {
+  padding: 2.5rem 0;
+  border-top: 1px solid var(--border);
+
+  .section-head {
+    margin-bottom: 1.5rem;
+
+    h2 {
+      margin: 0;
+    }
+  }
+}
+
 // -- metadata card --------------------------------------------------------
 
 .metadata-card {
@@ -346,7 +419,6 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 22px;
-  margin: 2rem 0;
 }
 
 .post-card {
@@ -364,7 +436,7 @@ a {
 
   img {
     width: 100%;
-    aspect-ratio: 16 / 10;
+    aspect-ratio: 16 / 9;
     object-fit: cover;
   }
 
@@ -398,7 +470,100 @@ a {
 
 // -- post body -------------------------------------------------------------
 
+.post-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  margin: 1.5rem 0 0;
+
+  &:hover {
+    color: var(--accent-ink);
+    text-decoration: none;
+  }
+}
+
+.post-hero-wrap {
+  margin: 1.5rem 0 2.5rem;
+}
+
+.post-hero {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.post-body {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 .post-content {
+  padding-bottom: 3rem;
+
+  .post-body {
+    font-size: 1.08rem;
+    line-height: 1.8;
+  }
+
+  h2 {
+    margin-top: 2.6em;
+  }
+
+  h3 {
+    margin-top: 2em;
+  }
+
+  ul, ol {
+    margin: 0 0 1.3em;
+    padding-left: 1.4em;
+  }
+
+  li {
+    margin-bottom: 0.5em;
+  }
+
+  li > ul,
+  li > ol {
+    margin-top: 0.5em;
+  }
+
+  blockquote {
+    margin: 1.8em 0;
+    padding: 0.2em 0 0.2em 1.2em;
+    border-left: 3px solid var(--violet);
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 3rem 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 1.5em;
+    font-size: 0.95rem;
+
+    th, td {
+      text-align: left;
+      padding: 0.6em 0.8em;
+      border-bottom: 1px solid var(--border);
+    }
+
+    th {
+      color: var(--ink);
+      font-weight: 700;
+    }
+  }
+
   img {
     max-width: 100%;
     border-radius: var(--radius);
@@ -413,6 +578,7 @@ a {
 
   pre, code {
     font-family: var(--font-mono);
+    font-size: 0.92em;
   }
 
   pre {
@@ -421,6 +587,7 @@ a {
     border-radius: var(--radius);
     padding: 1rem;
     overflow-x: auto;
+    line-height: 1.6;
   }
 }
 
