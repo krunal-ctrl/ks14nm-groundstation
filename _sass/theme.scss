@@ -9,26 +9,26 @@
 // ---------------------------------------------------------------------------
 
 :root {
-  --bg: hsl(210deg 25% 98%);
-  --bg-soft: hsl(220deg 35% 95%);
+  --bg: hsl(210, 25%, 98%);
+  --bg-soft: hsl(220, 35%, 95%);
   --surface: #ffffff;
-  --ink: hsl(222deg 22% 8%);
-  --ink-soft: hsl(222deg 14% 38%);
-  --ink-faint: hsl(222deg 12% 58%);
-  --border: hsl(220deg 26% 90%);
+  --ink: hsl(222, 22%, 8%);
+  --ink-soft: hsl(222, 14%, 38%);
+  --ink-faint: hsl(222, 12%, 58%);
+  --border: hsl(220, 26%, 90%);
 
-  --violet: hsl(245deg 100% 60%);
-  --primary: hsl(245deg 100% 67%);
-  --pink: hsl(333deg 90% 48%);
-  --teal: hsl(170deg 80% 42%);
+  --violet: hsl(245, 100%, 60%);
+  --primary: hsl(245, 100%, 67%);
+  --pink: hsl(333, 90%, 48%);
+  --teal: hsl(170, 80%, 42%);
 
   --accent: var(--violet);
-  --accent-ink: hsl(245deg 75% 50%);
+  --accent-ink: hsl(245, 75%, 50%);
 
   --radius: 16px;
   --radius-lg: 24px;
   --shadow-sm: 0 1px 2px rgba(33, 32, 43, 0.06), 0 2px 8px rgba(33, 32, 43, 0.05);
-  --shadow-md: 0 8px 28px hsl(245deg 100% 60% / 0.16), 0 2px 8px hsl(222deg 40% 20% / 0.06);
+  --shadow-md: 0 8px 28px hsla(245, 100%, 60%, 0.16), 0 2px 8px hsla(222, 40%, 20%, 0.06);
   --maxw: 1080px;
 
   --font: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
@@ -204,7 +204,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: hsl(210deg 40% 99% / 0.78);
+  background: hsla(210, 40%, 99%, 0.78);
   backdrop-filter: saturate(180%) blur(14px);
   -webkit-backdrop-filter: saturate(180%) blur(14px);
   border-bottom: 1px solid var(--border);
