@@ -36,7 +36,7 @@ Live telemetry widget on homepage: planned, not now. Build content pipeline firs
 │   ├── css/main.scss
 │   ├── img/
 │   │   ├── diagrams/           # hand-drawn sketches, exported from Canva
-│   │   ├── logo/                # KS14NM badge variants
+│   │   ├── logo/                # KS14NM badge variants (legacy, header/footer now use inline brand SVG)
 │   │   └── posts/
 │   └── js/
 │       └── telemetry.js         # placeholder, wire up later
@@ -44,25 +44,37 @@ Live telemetry widget on homepage: planned, not now. Build content pipeline firs
 └── index.md                     # homepage, reserve a #telemetry div
 ```
 
-## Visual theme (must match Instagram)
+## Visual theme (unified with krunal-ctrl.github.io personal brand)
 
-**Palette**
-- Background: deep charcoal `#1c1f22`
-- Paper surface: warm off-white `#f4efe6`
-- Highlight: muted teal `#4fb3ac`
-- Accent: amber `#e0952b`
-- Secondary text: soft gray `#9aa0a6`
+As of 2026-07-29, this site shares the layout/color system of the personal
+portfolio (`krunal-ctrl.github.io`) instead of a standalone dark/notebook
+look, so the two properties read as one brand — header/footer show both
+brand marks together (personal wordmark + KS14NM badge), rather than one
+replacing the other. Typography deliberately diverges from the portfolio
+(see below): a public, SEO-driven blog prioritizes open-licensed,
+accessibility-tested fonts over matching the portfolio's paid display font.
+Instagram carousels can still use the notebook/hand-drawn aesthetic for
+diagrams specifically — that's a content style, not the site chrome.
+
+**Palette** (light theme, matches portfolio)
+- Background: `hsl(210deg 25% 98%)` (`--bg`), soft panels `hsl(220deg 35% 95%)` (`--bg-soft`)
+- Surface (cards): `#ffffff` (`--surface`)
+- Ink (text): `hsl(222deg 22% 8%)` primary, `hsl(222deg 14% 38%)` soft, `hsl(222deg 12% 58%)` faint
+- Border: `hsl(220deg 26% 90%)`
+- Primary/brand accent: violet `hsl(245deg 100% 60–67%)` (`--violet` / `--primary`)
+- Secondary accents: pink `hsl(333deg 90% 48%)`, teal `hsl(170deg 80% 42%)` — teal is reserved for ground-station-specific details (frequency tags, TinyGS mentions)
 
 **Type**
-- Headings: technical sans (e.g. Space Grotesk, IBM Plex Sans)
-- Data/frequencies/telemetry: monospace (e.g. JetBrains Mono, IBM Plex Mono)
-- Annotations: handwritten-style font (e.g. Caveat, Architects Daughter) — sparingly, for callouts only
+- Headings & body: **IBM Plex Sans** (Google Fonts, open-source/OFL) — chosen over the portfolio's Apercu deliberately: this is a public, SEO-driven blog, so open licensing and accessibility/legibility across a wide audience outweigh pixel-matching the portfolio's typeface
+- Data/frequencies/telemetry: **IBM Plex Mono** (same type family as body text, so headings/body/data read as one cohesive system instead of three unrelated fonts)
+- Annotations: handwritten-style font (Caveat) — sparingly, for callouts/diagram captions only
 
 **Layout rules**
-- Fixed grid, consistent margins across all posts
+- Rounded-card UI (`--radius` / `--radius-lg`), soft shadows (`--shadow-sm` / `--shadow-md`), pill buttons/tags — matches portfolio components (`.card`, `.btn`, `.tag`)
+- Fixed grid, consistent margins across all posts (`--maxw: 1080px`)
 - Every post: corner metadata block (date, satellite, experiment ID / build rev)
-- Footer: KS14NM badge + 433 MHz / TinyGS tag where relevant
-- Diagrams: hand-drawn look, faint grid/notebook background, not clip-art
+- Header/footer use the shared brand mark (hand-drawn "K" wordmark) and link back to the portfolio; footer keeps a KS14NM / 433 MHz / TinyGS tag as the sub-brand identifier
+- Diagrams: hand-drawn look, faint grid/notebook background, not clip-art — this applies to diagram *images* specifically, not overall site chrome
 
 ## Post types (categories)
 

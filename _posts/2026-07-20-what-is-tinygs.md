@@ -76,7 +76,5 @@ low-pass satellites enough to miss weak signals entirely.
 
 ## What's next
 
-Next post in this series covers the physical ground station setup: mounting,
-grounding, and cable runs.
-
-*Related: [Ground Station Setup](/orbit-rf-explainer/2026/07/24/ground-station-setup/)*
+Next up: the physical ground station setup — mounting, grounding, and cable
+runs, once that build is documented.

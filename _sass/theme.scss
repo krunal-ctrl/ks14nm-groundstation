@@ -1,53 +1,108 @@
 // ---------------------------------------------------------------------------
 // KS14NM Ground Station — theme tokens
-// Single source of truth for color/type. No inline hex codes in templates.
+// Shares the layout system of krunal-ctrl.github.io (violet/pink/teal palette,
+// rounded card UI) so the two sites read as one brand. Typography uses IBM
+// Plex Sans + IBM Plex Mono — open-source (OFL), built for long-form
+// technical reading, and pairs the same family across body copy and
+// telemetry data instead of mixing in a licensed display font.
+// No inline hex codes in templates — all tokens live here.
 // ---------------------------------------------------------------------------
 
 :root {
-  --color-bg: #1c1f22;
-  --color-paper: #f4efe6;
-  --color-highlight: #4fb3ac;
-  --color-accent: #e0952b;
-  --color-text-secondary: #9aa0a6;
-  --color-text-primary: var(--color-paper);
-  --color-border: rgba(244, 239, 230, 0.12);
+  --bg: hsl(210deg 25% 98%);
+  --bg-soft: hsl(220deg 35% 95%);
+  --surface: #ffffff;
+  --ink: hsl(222deg 22% 8%);
+  --ink-soft: hsl(222deg 14% 38%);
+  --ink-faint: hsl(222deg 12% 58%);
+  --border: hsl(220deg 26% 90%);
 
-  --font-heading: "Space Grotesk", "IBM Plex Sans", sans-serif;
-  --font-mono: "JetBrains Mono", "IBM Plex Mono", monospace;
+  --violet: hsl(245deg 100% 60%);
+  --primary: hsl(245deg 100% 67%);
+  --pink: hsl(333deg 90% 48%);
+  --teal: hsl(170deg 80% 42%);
+
+  --accent: var(--violet);
+  --accent-ink: hsl(245deg 75% 50%);
+
+  --radius: 16px;
+  --radius-lg: 24px;
+  --shadow-sm: 0 1px 2px rgba(33, 32, 43, 0.06), 0 2px 8px rgba(33, 32, 43, 0.05);
+  --shadow-md: 0 8px 28px hsl(245deg 100% 60% / 0.16), 0 2px 8px hsl(222deg 40% 20% / 0.06);
+  --maxw: 1080px;
+
+  --font: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: "IBM Plex Mono", "JetBrains Mono", monospace;
   --font-hand: "Caveat", "Architects Daughter", cursive;
-
-  --grid-margin: 2rem;
-  --grid-max-width: 960px;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html, body {
+  height: 100%;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
 body {
   margin: 0;
-  background-color: var(--color-bg);
-  color: var(--color-text-primary);
-  font-family: var(--font-heading);
-  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--bg);
+  line-height: 1.65;
+  font-size: 18px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+main.wrapper {
+  flex: 1 0 auto;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+}
+
+img {
+  max-width: 100%;
+  display: block;
 }
 
 h1, h2, h3, h4 {
-  font-family: var(--font-heading);
-  line-height: 1.25;
+  font-family: var(--font);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin: 0 0 0.4em;
+}
+h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); }
+h3 { font-size: 1.2rem; }
+p { margin: 0 0 1.1em; }
+
+::selection {
+  background: var(--violet);
+  color: #fff;
 }
 
-code, pre, .telemetry, .metadata-card, .freq {
+.freq, .telemetry-data {
   font-family: var(--font-mono);
 }
 
 .annotation {
   font-family: var(--font-hand);
-  color: var(--color-accent);
+  color: var(--pink);
+  font-size: 1.1rem;
 }
 
 a {
-  color: var(--color-highlight);
+  color: var(--accent-ink);
   text-decoration: none;
 
   &:hover {
@@ -56,29 +111,109 @@ a {
 }
 
 .wrapper {
-  max-width: var(--grid-max-width);
+  width: 100%;
+  max-width: var(--maxw);
   margin: 0 auto;
-  padding: 0 var(--grid-margin);
+  padding: 0 24px;
 }
 
-// -- header -------------------------------------------------------------
+// -- brand mark (shared with krunal-ctrl.github.io) ------------------------
+
+.brand {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--ink);
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.16em;
+  letter-spacing: -0.01em;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+.brand-mono {
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary);
+  margin: 0 0.1em;
+
+  svg {
+    height: 1.25em;
+    width: auto;
+    display: block;
+    stroke: currentColor;
+    fill: none;
+    overflow: visible;
+    transform: translateY(0.05em) rotate(-4deg);
+  }
+}
+.brand-last {
+  color: var(--ink);
+}
+
+// -- brand + badge lockup (personal brand paired with the KS14NM mark) -----
+
+.brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+.brand-divider {
+  color: var(--border);
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.badge-lockup {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ink);
+
+  &:hover {
+    text-decoration: none;
+
+    .badge-label {
+      color: var(--accent-ink);
+    }
+  }
+}
+
+.badge-logo {
+  height: 2rem;
+  width: auto;
+  border-radius: 6px;
+}
+
+.badge-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal);
+  transition: color 0.15s ease;
+}
+
+// -- header ------------------------------------------------------------
 
 .site-header {
-  border-bottom: 1px solid var(--color-border);
-  padding: 1.5rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: hsl(210deg 40% 99% / 0.78);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--border);
 
-  .site-title {
+  .nav {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    font-weight: 700;
-    font-size: 1.4rem;
-    letter-spacing: 0.02em;
-
-    .site-logo {
-      height: 2rem;
-      width: auto;
-    }
+    justify-content: space-between;
+    height: 68px;
   }
 }
 
@@ -88,16 +223,21 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1.5rem;
-  background: rgba(244, 239, 230, 0.05);
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  padding: 0.75rem 1rem;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0.85rem 1.1rem;
   font-size: 0.85rem;
-  color: var(--color-text-secondary);
+  color: var(--ink-soft);
   margin-bottom: 2rem;
 
+  span {
+    font-family: var(--font-mono);
+  }
+
   span strong {
-    color: var(--color-highlight);
+    font-family: var(--font);
+    color: var(--accent-ink);
   }
 }
 
@@ -105,43 +245,56 @@ a {
 
 .post-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
   margin: 2rem 0;
 }
 
 .post-card {
-  border: 1px solid var(--color-border);
-  border-radius: 6px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
   overflow: hidden;
-  background: rgba(244, 239, 230, 0.03);
-  transition: border-color 0.2s ease;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
 
   &:hover {
-    border-color: var(--color-highlight);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
   }
 
   img {
     width: 100%;
-    display: block;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
   }
 
   .post-card-body {
-    padding: 1rem;
+    padding: 20px;
   }
 
-  .category-tag {
-    display: inline-block;
-    font-family: var(--font-mono);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-bg);
-    background: var(--color-highlight);
-    padding: 0.15rem 0.5rem;
-    border-radius: 3px;
-    margin-bottom: 0.5rem;
+  h3 {
+    margin-bottom: 0.35em;
   }
+
+  p {
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    margin-bottom: 0;
+  }
+}
+
+.category-tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+  background: var(--primary);
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  margin-bottom: 0.6rem;
 }
 
 // -- post body -------------------------------------------------------------
@@ -149,49 +302,84 @@ a {
 .post-content {
   img {
     max-width: 100%;
-    border-radius: 4px;
-    background: repeating-linear-gradient(
-      0deg,
-      rgba(244, 239, 230, 0.03),
-      rgba(244, 239, 230, 0.03) 1px,
-      transparent 1px,
-      transparent 24px
-    );
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
   }
 
   figcaption {
     font-family: var(--font-hand);
-    color: var(--color-accent);
+    color: var(--pink);
     font-size: 1.1rem;
+  }
+
+  pre, code {
+    font-family: var(--font-mono);
+  }
+
+  pre {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem;
+    overflow-x: auto;
   }
 }
 
-// -- telemetry placeholder --------------------------------------------------
+// -- telemetry preview -------------------------------------------------
 
 #telemetry {
-  border: 1px dashed var(--color-border);
-  border-radius: 6px;
-  padding: 2rem;
-  text-align: center;
-  color: var(--color-text-secondary);
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
   margin: 3rem 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  background: var(--bg-soft);
+
+  img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
 }
 
 // -- footer ------------------------------------------------------------
 
 .site-footer {
-  border-top: 1px solid var(--color-border);
-  padding: 1.5rem 0;
+  flex-shrink: 0;
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
   margin-top: 3rem;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--color-text-secondary);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
 
-  .footer-logo {
-    height: 1.2rem;
-    width: auto;
-    vertical-align: middle;
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-tagline {
+    margin: 0.4em 0 0;
+    color: var(--ink-faint);
+    font-size: 0.85rem;
+  }
+
+  .socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--ink-faint);
   }
 }

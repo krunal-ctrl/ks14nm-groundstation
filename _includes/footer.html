@@ -1,8 +1,37 @@
 <footer class="site-footer">
   <div class="wrapper">
-    <img class="footer-logo" src="{{ '/assets/img/logo/ks14nm-badge.png' | relative_url }}" alt="KS14NM badge">
-    &middot; {{ site.station_frequency }}
-    &middot; TinyGS
-    &middot; <a href="https://instagram.com/{{ site.instagram }}">@{{ site.instagram }}</a>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="brand-lockup">
+          <a class="brand" href="https://krunal-ctrl.github.io/">
+            <span class="brand-first">Krunal</span>
+            <span class="brand-mono" aria-hidden="true">
+              <svg class="hand-k" width="22" height="26" viewBox="0 0 22 26" fill="none"><path d="M5 2.5C4.2 8 5.6 15 4.9 23.5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 13C9 10 12.5 6.5 17 2.8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 12.5C10 15 14 19 18 23.5" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span class="brand-last">Jethva</span>
+          </a>
+          <span class="brand-divider" aria-hidden="true">&times;</span>
+          <a class="badge-lockup" href="{{ '/' | relative_url }}">
+            <img class="badge-logo" src="{{ '/assets/img/logo/ks14nm-badge.png' | relative_url }}" alt="KS14NM badge">
+            <span class="badge-label">Ground Station</span>
+          </a>
+        </div>
+        <p class="footer-tagline">{{ site.callsign }} amateur ground station &middot; {{ site.station_frequency }} &middot; TinyGS</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <p class="footer-col-title">Explore</p>
+        <a href="{{ '/' | relative_url }}">Timeline</a>
+        <a href="https://krunal-ctrl.github.io/">Portfolio</a>
+      </nav>
+      <div class="socials">
+        <p class="footer-col-title">Connect</p>
+        <a href="https://instagram.com/{{ site.instagram }}" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://github.com/krunal-ctrl" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="copyright">&copy; {{ site.time | date: "%Y" }} Krunal Jethva</span>
+      <span class="copyright">{{ site.callsign }} &middot; {{ site.station_frequency }}</span>
+    </div>
   </div>
 </footer>
